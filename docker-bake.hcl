@@ -4,7 +4,7 @@ variable "TAG" {
 }
 
 variable "COMPANY_NAME" { 
-    default = "onlyoffice" 
+    default = "erguotou" 
 }
 
 variable "PREFIX_NAME" { 
