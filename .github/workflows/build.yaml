@@ -150,7 +150,7 @@ jobs:
             echo "matrix=$(echo $matrix | jq -c)" >> "$GITHUB_OUTPUT"
       - name: download-fonts
         run: |
-          python3 download-fonts.py
+          python3 fonts/download-fonts.py
   build:
     name: "${{ matrix.name }} ${{ github.event.inputs.tag }}"
     runs-on: ubuntu-latest
