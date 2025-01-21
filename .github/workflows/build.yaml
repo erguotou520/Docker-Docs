@@ -148,9 +148,6 @@ jobs:
             echo "sourceTag=${{ github.event.inputs.tag }}" >> "$GITHUB_OUTPUT"
             echo "dsHash=$(echo -n "$(date +'%Y.%m.%d-%H%M')" | md5sum | awk '{print $1}')" >> "$GITHUB_OUTPUT"
             echo "matrix=$(echo $matrix | jq -c)" >> "$GITHUB_OUTPUT"
-      - name: download-fonts
-        run: |
-          python3 fonts/download-fonts.py
   build:
     name: "${{ matrix.name }} ${{ github.event.inputs.tag }}"
     runs-on: ubuntu-latest
@@ -161,7 +158,9 @@ jobs:
     steps:
       - name: Checkout code 
         uses: actions/checkout@v4
-
+      - name: download-fonts
+        run: |
+          python3 scripts/download-fonts.py
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
 
