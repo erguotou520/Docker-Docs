@@ -62,7 +62,6 @@ COPY --chown=ds:ds \
 COPY --chown=ds:ds \
     plugins/ \
     /var/www/$COMPANY_NAME/documentserver/sdkjs-plugins/
-RUN echo "list fonts" && ls /var/www/$COMPANY_NAME/documentserver/core-fonts/custom/
 RUN documentserver-generate-allfonts.sh true && \
     documentserver-flush-cache.sh -h $DS_VERSION_HASH -r false && \
     documentserver-pluginsmanager.sh -r false \
