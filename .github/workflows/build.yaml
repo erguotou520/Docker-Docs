@@ -158,9 +158,9 @@ jobs:
     steps:
       - name: Checkout code 
         uses: actions/checkout@v4
-      - name: download-fonts
-        run: |
-          python3 scripts/download-fonts.py
+      # - name: download-fonts
+      #   run: |
+      #     python3 scripts/download-fonts.py
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
 
